@@ -30,15 +30,10 @@ public class User {
 	public User() {
 	}
 
-	public User(int userid, String email, String password) {
-		this.user_id = userid;
+	public User( String email, String password) {		
 		this.email = email;
 		this.password = password;
-	}
-
-	public void setId(int id) {
-		this.user_id = id;
-	}
+	}	
 
 	public void setEmail(String email) {
 		this.email = email;

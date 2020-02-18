@@ -35,7 +35,7 @@ public class Initializer  {
 
         eraseData();                      
 
-        Employee testEmployee = new Employee(1,"dvyewjcfu@kkk.com", "denmpaineis", "Nikos", "Fousekis", "0904987333");
+        Employee testEmployee = new Employee("dvyewjcfu@kkk.com", "denmpaineis", "Nikos", "Fousekis", "0904987333");
        
         EntityManager em = JPAUtil.getCurrentEntityManager();
         EntityTransaction tx = em.getTransaction();

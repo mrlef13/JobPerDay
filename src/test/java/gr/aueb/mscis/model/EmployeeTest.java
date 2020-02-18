@@ -14,9 +14,9 @@ public class EmployeeTest {
 	
 	@Test
 	public void NewEmployeeid() {
-		Employee e= new Employee(2,"lala@ff.com", "denmpaineis", "Nikos", "Fousekis", "0904987333");
+		Employee e= new Employee("lala@ff.com", "denmpaineis", "Nikos", "Fousekis", "0904987333");
 		//Employee testEmployee = new Employee(1,"dvyewjcfu@kkk.com", "denmpaineis", "Nikos", "Fousekis", "0904987333");
-		Assert.assertEquals(2, e.getId());
+		Assert.assertEquals(1, e.getId());
 	}
 	
 }

@@ -33,18 +33,23 @@ protected EntityManager em;
 	public void testPersistAValidEmployee(){
 		
 		EmployeeService service = new EmployeeService();
-		Employee newEmployee = service.Registeremployee(10,"xxx111@kkk.com", "denmpaineis", "denmpaineis", "Nikos", "Fousekis", "0904987333");
+		Employee newEmployee = service.Registeremployee("xxx111@kkk.com", "denmpaineis", "denmpaineis", "Nikos", "Fousekis", "0904987333");
 		// EntityManager.persist() updates the ID of the persisted object
 		//Assert.assertNotEquals(0, newEmployee.getemployeeid());
-		em = JPAUtil.getCurrentEntityManager();	
-		em.persist(newEmployee);
-		em.flush();
-		em.close(); // close session
-		// new session, data will be retrieved from database
-		
 		Employee savedEmployee = em.find(Employee.class, newEmployee.getId()); 
+		em = JPAUtil.getCurrentEntityManager();	
+		em.persist(newEmployee);		
+		// new session, data will be retrieved from database				
 		//Assert.assertNotNull(savedEmployee);
-		Assert.assertEquals("xxx111@kkk.com", savedEmployee.getEmail());		
+		Assert.assertEquals(1, savedEmployee.getId());
 	}
-
+	@Test
+	public void testPersistAnInValidEmployee(){
+		
+		EmployeeService service = new EmployeeService();
+		Employee newEmployee = service.Registeremployee("xxx111@kkk.com", "denmpaineis", "denmp", "Nikos", "Fousekis", "0904987333");
+		// EntityManager.persist() updates the ID of the persisted object
+		//Assert.assertNotEquals(0, newEmployee.getemployeeid());		
+		Assert.assertNull(newEmployee);
+	}
 }

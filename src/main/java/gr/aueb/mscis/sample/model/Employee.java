@@ -28,7 +28,7 @@ public class Employee extends User {
 	
 	
 	public Employee() {}
-	public Employee(int employeeid,String email, String pass, String firstname, String lastname, String phonenumber) {
+	public Employee(String email, String pass, String firstname, String lastname, String phonenumber) {
 		this.email=email;
 		this.password =pass;
 		this.FirstName =firstname;

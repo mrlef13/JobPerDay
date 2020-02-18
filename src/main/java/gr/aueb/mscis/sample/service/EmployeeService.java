@@ -14,15 +14,14 @@ public EmployeeService() {
 	em = JPAUtil.getCurrentEntityManager();
 	}
 
-public Employee Registeremployee (int employeeid,String email, String pass, String passver, String firstname, String lastname, String phonenumber) {
+public Employee Registeremployee (String email, String pass, String passver, String firstname, String lastname, String phonenumber) {
 		
 	if (pass == passver) {//also check if email exists
 		//User user = new User();
 		Employee employee= new Employee();
 		//user.setPassword(pass);
 		//user.setEmail(email);
-		//employee.RegistrationEmployee(user);
-		employee.setId(employeeid);
+		//employee.RegistrationEmployee(user);		
 		employee.setEmail(email);
 		employee.setPassword(pass);
 		employee.setFirstName(firstname);
