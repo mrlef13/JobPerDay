@@ -46,7 +46,7 @@ public JobOffer(int id , Date Entrydate, int Entryhour, int Endhour, Date Exprir
 	this.Endhour=Endhour;
 	this.Exprirationdate=Exprirationdate;
 	this.Payment=Payment;
-	this.active=active;
+	
 			
 			
 }
