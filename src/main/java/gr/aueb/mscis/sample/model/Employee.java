@@ -2,15 +2,21 @@ package gr.aueb.mscis.sample.model;
 import java.util.HashSet;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
+//import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+//import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue("EMPLOYEE")
+@DiscriminatorValue("Company")
 public class Employee extends User {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int employee_id;
 	
 	@Column(name = "phonenumber", length = 10, nullable = false)
 	private String phonenumber;
@@ -45,11 +51,14 @@ public class Employee extends User {
 	public String getLastName () {return this.LastName; }
 	public void setLastName (String x) {this.LastName=x;}
 	
+	
+	
+	/*
 	public Boolean RegistrationEmployee(User u) {
 		this.email=u.getEmail();
 		this.password=u.getPassword();
 		    return true;
 	}
-	
+	*/
 	
 }

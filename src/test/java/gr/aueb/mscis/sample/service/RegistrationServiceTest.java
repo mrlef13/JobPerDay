@@ -7,11 +7,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import gr.aueb.mscis.sample.model.Employee;
+import gr.aueb.mscis.sample.model.*;
 import gr.aueb.mscis.sample.persistence.Initializer;
 import gr.aueb.mscis.sample.persistence.JPAUtil;
 
-public class EmpolyeeServiceTest {
+public class RegistrationServiceTest {
 
 protected EntityManager em;
 	
@@ -32,8 +32,8 @@ protected EntityManager em;
 	@Test
 	public void testPersistAValidEmployee(){
 		
-		EmployeeService service = new EmployeeService();
-		Employee newEmployee = service.Registeremployee("xxx111@kkk.com", "denmpaineis", "denmpaineis", "Nikos", "Fousekis", "0904987333");
+		RegistrationService service = new RegistrationService();
+		Employee newEmployee = service.registerEmployee("xxx111@kkk.com", "denmpaineis", "denmpaineis", "Nikos", "Fousekis", "0904987333");
 		// EntityManager.persist() updates the ID of the persisted object
 		//Assert.assertNotEquals(0, newEmployee.getemployeeid());
 		Employee savedEmployee = em.find(Employee.class, newEmployee.getId()); 
@@ -44,12 +44,30 @@ protected EntityManager em;
 		Assert.assertEquals(1, savedEmployee.getId());
 	}
 	@Test
-	public void testPersistAnInValidEmployee(){
+	public void testPersistAnInvalidEmployee(){
 		
-		EmployeeService service = new EmployeeService();
-		Employee newEmployee = service.Registeremployee("xxx111@kkk.com", "denmpaineis", "denmp", "Nikos", "Fousekis", "0904987333");
+		RegistrationService service = new RegistrationService();
+		Employee newEmployee = service.registerEmployee("xxx111@kkk.com", "denmpaineis", "denmp", "Nikos", "Fousekis", "0904987333");
 		// EntityManager.persist() updates the ID of the persisted object
 		//Assert.assertNotEquals(0, newEmployee.getemployeeid());		
 		Assert.assertNull(newEmployee);
+	}
+	
+	@Test
+	public void testPersistAValidCompany(){		
+		RegistrationService service = new RegistrationService();
+		Company newCompany = service.registerCompany("myCompany@aueb.com", "denmpaineis", "denmpaineis", "AUEB test", "1023785446");
+		Company savedCompany = em.find(Company.class, newCompany.getId());
+		em = JPAUtil.getCurrentEntityManager();	
+		em.persist(newCompany);		
+		Assert.assertEquals(1, savedCompany.getId());		
+		Assert.assertNull(newCompany);
+	}
+	
+	@Test
+	public void testPersistAnInvalidCompany(){		
+		RegistrationService service = new RegistrationService();
+		Company newCompany = service.registerCompany("myCompany@aueb.com", "denmpaineis", "denmp", "AUEB test", "1023785446");
+		Assert.assertNull(newCompany);
 	}
 }

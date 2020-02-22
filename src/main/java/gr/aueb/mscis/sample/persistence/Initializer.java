@@ -24,6 +24,8 @@ public class Initializer  {
         Query query = null;
 
         query = em.createNativeQuery("delete from USERS");
+        query = em.createNativeQuery("delete from EMPLOYEE");
+        query = em.createNativeQuery("delete from COMPANY");
         query.executeUpdate();
         
         tx.commit();

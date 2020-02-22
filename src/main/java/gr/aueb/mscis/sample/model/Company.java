@@ -1,11 +1,16 @@
 package gr.aueb.mscis.sample.model;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-@Entity
-public class Company extends User{
+//import javax.persistence.Table;
 
+@Entity
+@DiscriminatorValue("Company")
+public class Company extends User{
+	//private int comp_id;
+	
 @Column(name = "compname", length = 50, nullable = false)
 private String compname;
 @Column(name = "AFM", length = 10, nullable = false)

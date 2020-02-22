@@ -12,23 +12,22 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "USERS")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "product_type", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "USERTYPE")
 public class User {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int user_id;
-
+	@Column(name = "id", updatable = false, nullable = false)
+	protected int id;
+	
 	@Column(name = "email", length = 50, nullable = false)
 	protected String email;
 
 	@Column(name = "password", length = 20, nullable = false)
 	protected String password;
 
-	public User() {
-	}
+	public User() {}
 
 	public User( String email, String password) {		
 		this.email = email;
@@ -44,7 +43,7 @@ public class User {
 	}
 
 	public int getId() {
-		return this.user_id;
+		return this.id;
 	}
 
 	public String getEmail() {
@@ -54,12 +53,4 @@ public class User {
 	public String getPassword() {
 		return this.password;
 	}
-
-	/*
-	 * public boolean passwordVerification (String passwordver) { if (this.password
-	 * == passwordver) return true; else return false; }
-	 */
-	/*
-	 * public boolean emailVer () { return this.email.contains("@"); }
-	 */
 }
