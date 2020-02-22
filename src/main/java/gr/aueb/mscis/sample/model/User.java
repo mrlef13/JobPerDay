@@ -38,6 +38,10 @@ public class User {
 		this.password = password;
 	}	
 
+	public void setId(int id) {
+		this.id=id;
+	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}

@@ -1,5 +1,5 @@
 package gr.aueb.mscis.sample.model;
-
+import java.util.HashSet;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -14,7 +14,9 @@ public class Company extends User{
 private String compname;
 @Column(name = "AFM", length = 10, nullable = true)
 private String AFM;
-	
+
+public HashSet<JobOffer> jobofferset = new HashSet<JobOffer>(); 
+
 	public Company() {}
 	public Company(String email, String pass, String compname,String AFM) {
 		this.email=email;

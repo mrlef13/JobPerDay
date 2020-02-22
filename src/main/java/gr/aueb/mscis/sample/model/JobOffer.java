@@ -39,7 +39,7 @@ protected boolean active=true;
 
 public JobOffer() {}
 
-public JobOffer(int id , Date Entrydate, int Entryhour, int Endhour, Date Exprirationdate, int Payment, boolean active) {		
+public JobOffer(int id , Date Entrydate, int Entryhour, int Endhour, Date Exprirationdate, int Payment) {		
 	this.id=id;
 	this.Entrydate=Entrydate;
 	this.Entryhour=Entryhour;
@@ -48,11 +48,18 @@ public JobOffer(int id , Date Entrydate, int Entryhour, int Endhour, Date Exprir
 	this.Payment=Payment;
 }
 	//int id , Date Entrydate, int Entryhour, int Endhour, Date Exprirationdate, int Payment, boolean active)
-	public void setEntrydate(Date Entrydate) {
+public void setId(int id) {
+	this.id=id;
+}
+public int getId() {
+	return this.id;
+}
+
+public void setEntrydate(Date Entrydate) {
 		this.Entrydate=Entrydate;
 	}
 	
-	public void setEntrydate(int Entryhour) {
+	public void setEntryHour(int Entryhour) {
 		this.Entryhour=Entryhour;
 	}
 	
@@ -72,9 +79,13 @@ public JobOffer(int id , Date Entrydate, int Entryhour, int Endhour, Date Exprir
 		this.active=active;
 	}
 	
-	public int getEntrydate() {
-		return this.Entryhour;
+	public Date getEntrydate() {
+		return this.Entrydate;
 	}
+	
+	public int getEntryHour() {
+		return this.Entryhour;
+	}	
 	
 	public int getEndhour() {
 		return this.Endhour;
