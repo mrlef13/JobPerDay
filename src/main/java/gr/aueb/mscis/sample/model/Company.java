@@ -7,13 +7,12 @@ import javax.persistence.Entity;
 //import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue("Company")
+@DiscriminatorValue("company")
 public class Company extends User{
-	//private int comp_id;
 	
-@Column(name = "compname", length = 50, nullable = false)
+@Column(name = "compname", length = 50, nullable = true)
 private String compname;
-@Column(name = "AFM", length = 10, nullable = false)
+@Column(name = "AFM", length = 10, nullable = true)
 private String AFM;
 	
 	public Company() {}

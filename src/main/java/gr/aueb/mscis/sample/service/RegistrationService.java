@@ -15,7 +15,7 @@ public RegistrationService() {
 
 
 public Employee registerEmployee (String email, String pass, String passver, String firstname, String lastname, String phonenumber) {		
-	if (pass == passver) {//also check if email exists		
+	if (pass == passver) {		
 		Employee employee= new Employee();
 		employee.setEmail(email);
 		employee.setPassword(pass);
@@ -28,7 +28,7 @@ public Employee registerEmployee (String email, String pass, String passver, Str
 	}
 
 public Company registerCompany (String email, String pass, String passver, String compname, String AFM) {		
-	if (pass == passver) {//also check if email exists		
+	if (pass == passver) {		
 		Company company= new Company();
 		company.setEmail(email);
 		company.setPassword(pass);

@@ -5,7 +5,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import gr.aueb.mscis.sample.model.Employee;
+
+import gr.aueb.mscis.sample.model.*;
 //import gr.aueb.mscis.sample.model.Movie;
 
 
@@ -24,30 +25,32 @@ public class Initializer  {
         Query query = null;
 
         query = em.createNativeQuery("delete from USERS");
-        query = em.createNativeQuery("delete from EMPLOYEE");
-        query = em.createNativeQuery("delete from COMPANY");
+        //query = em.createNativeQuery("delete from EMPLOYEE");
+        //query = em.createNativeQuery("delete from COMPANY");
         query.executeUpdate();
         
-        tx.commit();
-        
+        tx.commit();       
     }
     
 
     public void prepareData() {
 
         eraseData();                      
-
-        Employee testEmployee = new Employee("dvyewjcfu@kkk.com", "denmpaineis", "Nikos", "Fousekis", "0904987333");
-       
+        User testUser = new User(0,"user@prepare.com", "pass1");
+        //Employee testEmployee = new Employee("employee@prepare.com", "denmpaineis", "Nikos", "Fousekis", "0904987333");
+        //Company testCompany = new Company("company@prepare.com", "denmpaineis", "myComp", "0123456789");
         EntityManager em = JPAUtil.getCurrentEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         
-        /*try {em.persist(testEmployee);
+        try {em.persist(testUser);
         }catch(EntityExistsException e){}
-        */
-        em.persist(testEmployee);
+        
+        em.persist(testUser);
+        //em.persist(testEmployee);
+        //em.persist(testCompany);
         tx.commit();
-    
+        //em.persist(testCompany);
+        //tx.commit();
     }
 }

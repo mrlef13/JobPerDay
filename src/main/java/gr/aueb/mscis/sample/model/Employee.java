@@ -5,31 +5,28 @@ import javax.persistence.Column;
 //import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 //import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue("Company")
+@DiscriminatorValue("employee")
 public class Employee extends User {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int employee_id;
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	//private int employee_id;
 	
-	@Column(name = "phonenumber", length = 10, nullable = false)
+	@Column(name = "phonenumber", length = 10, nullable = true)
 	private String phonenumber;
 	
-	@Column(name = "FirstName", length = 50, nullable = false)
+	@Column(name = "FirstName", length = 50, nullable = true)
 	private String FirstName;
 	
-	@Column(name = "LastName", length = 50, nullable = false)
+	@Column(name = "LastName", length = 50, nullable = true)
 	private String LastName;
 	
 	public HashSet<JOB> JOBList= new HashSet<JOB>(); //Table?//
 	
-	@Column(name="Available", length= 1, nullable=false)
+	@Column(name="Available", length= 1, nullable=true)
 	public Boolean availability=true;
 	
 	

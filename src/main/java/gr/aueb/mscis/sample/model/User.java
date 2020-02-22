@@ -12,8 +12,11 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
+@Table(name = "USERS")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "USERTYPE")
+@DiscriminatorColumn(name = "USERTYPE",discriminatorType = DiscriminatorType.STRING)
+
+
 public class User {
 	
 	@Id
@@ -29,7 +32,8 @@ public class User {
 
 	public User() {}
 
-	public User( String email, String password) {		
+	public User( int id ,String email, String password) {		
+		this.id=id;
 		this.email = email;
 		this.password = password;
 	}	
