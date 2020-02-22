@@ -19,19 +19,19 @@ public class JobOffer {
 protected int id;
 
 @Column(name = "Entrydate", updatable = false, nullable = false)
-public Date Entrydate;
+private Date Entrydate;
 
 @Column(name = "Entryhour", updatable = false, nullable = false)
-public int Entryhour;
+private int Entryhour;
 
 @Column(name = "Endhour", updatable = false, nullable = false)
-public int Endhour;
+private int Endhour;
 
 @Column(name = "Expirationdate", updatable = false, nullable = false)
-public Date Exprirationdate;
+private Date Exprirationdate;
 
 @Column(name = "Payment", updatable = false, nullable = false)
-public int Payment;
+private int Payment;
 
 @Column(name = "Active", updatable = true, nullable = false)
 protected boolean active=true;
@@ -46,9 +46,55 @@ public JobOffer(int id , Date Entrydate, int Entryhour, int Endhour, Date Exprir
 	this.Endhour=Endhour;
 	this.Exprirationdate=Exprirationdate;
 	this.Payment=Payment;
-	
-			
-			
 }
-
+	//int id , Date Entrydate, int Entryhour, int Endhour, Date Exprirationdate, int Payment, boolean active)
+	public void setEntrydate(Date Entrydate) {
+		this.Entrydate=Entrydate;
+	}
+	
+	public void setEntrydate(int Entryhour) {
+		this.Entryhour=Entryhour;
+	}
+	
+	public void setEndhour(int Endhour) {
+		this.Endhour=Endhour;
+	}
+	
+	public void setExprirationdate(Date Exprirationdate) {
+		this.Exprirationdate=Exprirationdate;
+	}
+	
+	public void setPayment(int Payment) {
+		this.Payment=Payment;
+	}
+	
+	public void setActive(boolean active) {
+		this.active=active;
+	}
+	
+	public int getEntrydate() {
+		return this.Entryhour;
+	}
+	
+	public int getEndhour() {
+		return this.Endhour;
+	}
+	
+	public Date getExprirationdate() {
+		return this.Exprirationdate;
+	}
+	
+	public int getPayment() {
+		return this.Payment;
+	}
+	
+	public boolean getActive() {
+		return this.active;
+	}
+	public boolean checkHour() {
+		if (this.Endhour>this.Entryhour && this.Endhour>=1 && this.Endhour<=24 && this.Entryhour>=0 && this.Entryhour<=23 ) {
+			return true;
+		} else return false;
+	}
+	
 }
