@@ -4,34 +4,35 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>110</x>
-      <y>550</y>
+      <x>90</x>
+      <y>510</y>
       <w>180</w>
       <h>370</h>
     </coordinates>
     <panel_attributes>JobOffer
 --
-#joboffer_id: type
-#comp_id: type
--startdate: date
--startHour: HOUR
--endHour: HOUR
--availableDate: datetime
--payment: Money
-+isActive: boolean
+#id:int
+-Entrydate:Date 
+-Entryhour:int 
+-Endhour:int 
+-Exprirationdate:Date 
+-Payment:int 
+#active:Boolean=true
 --
-+setcomp_id
-+getcomp_id
-+setstartdate
-+getstartdate
-+setstartHour
-+getstartHour
-+setendHour
-+getendHour
-+setavailableDate
-+getavailableDate
-+setpayment
-+getpayment
++setId(int id)
++getId():int
++setEntrydate(Date)
++setEntryHour(int)
++setEndhour(int)
++setPayment(int)
++setActive(boolean)
++getEntrydate():int
++getEntryHour():int
++getEndhour():int
++getExprirationdate():Date
++getPayment():int
++getActive():boolean
++checkHour():boolean
 
 </panel_attributes>
     <additional_attributes/>
@@ -39,23 +40,19 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>110</x>
-      <y>240</y>
+      <x>90</x>
+      <y>280</y>
       <w>180</w>
-      <h>180</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>Company
 --
-#comp_id:int
--afm:AFM
--comp_name:String
+#compname:String
+#AFM:String
 --
-+verifyemlpoyee
-+createjoboffer
-+removejoboffer
-+setCompname: String 
-+getCompname: String 
-+employeeSearch
++setCompname(String)
++setAFM(String)
++getCompname(): String
 
 
 </panel_attributes>
@@ -64,69 +61,69 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>470</x>
-      <y>200</y>
-      <w>230</w>
-      <h>250</h>
+      <x>410</x>
+      <y>280</y>
+      <w>280</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Employee
 --
-#emp_id: int
--phonenumber: PHONENUMBER
--first_name: String
--last_name: String
-+JobList: JOB
-+availability: Boolean
+#phonenumber:String 
+#FirstName:String 
+#LastName:String 
++availability:Boolean=true
 --
-+RegistrationEmployee(User u): Boolean
-+jobverification: Boolean 
-+setavailability: Boolean 
-+getFirstname: String
-+setFirstname: String
-+getLaststname: String 
-+setLastname: String </panel_attributes>
++getphonenumber():String
++setphonenumber(String)
++getFirstName():String 
++setFirstName(String)
++getLastName():String 
++setLastName(String)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>480</x>
-      <y>550</y>
+      <x>460</x>
+      <y>580</y>
       <w>180</w>
       <h>190</h>
     </coordinates>
     <panel_attributes>JobApplication
 --
-#app_id: int
-#joboffer_id: int
-#emp_id
-+Comp_ver: boolean
-+Emp_ver: boolean
+#id:int
+#Compver:boolean
+#Empver:boolean
 --
-+setjoboffer_id
-+getjoboffer_id
-+setemp_id
-+getemp_id
++setId(int id)
++getId():int 
++setCompver(boolean)
++getCompver():boolean
++setEmppver(boolean)
++getEmpver():boolean
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>260</x>
-      <y>20</y>
-      <w>180</w>
-      <h>140</h>
+      <x>290</x>
+      <y>0</y>
+      <w>210</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>User
 --
-#user_id:int
-#user_mail:EMAIL
-#user_pass:PASSWORD
-
+#id:int
+#mail:String
+#password:String
 --
-+emailverification
-+passwordverification
++setId(int id)
++setEmail(String)
++setPassword(String)
++getId():int  
++getEmail():String
++getPassword():String 
 
 </panel_attributes>
     <additional_attributes/>
@@ -134,83 +131,60 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
-      <y>150</y>
-      <w>150</w>
+      <x>150</x>
+      <y>190</y>
+      <w>200</w>
       <h>110</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;90.0;130.0;10.0</additional_attributes>
+    <panel_attributes>lt=-&gt;&gt;
+extends</panel_attributes>
+    <additional_attributes>10.0;90.0;180.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>150</y>
-      <w>200</w>
-      <h>70</h>
+      <x>400</x>
+      <y>190</y>
+      <w>120</w>
+      <h>110</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
-    <additional_attributes>180.0;50.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=-&gt;&gt;
+extends</panel_attributes>
+    <additional_attributes>90.0;90.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>410</y>
-      <w>40</w>
-      <h>160</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=*
-m2=1
-</panel_attributes>
-    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>540</x>
-      <y>440</y>
-      <w>40</w>
+      <x>160</x>
+      <y>400</y>
+      <w>90</w>
       <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
+manages
 m1=*
-m2=1</panel_attributes>
+m2=1
+</panel_attributes>
     <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>590</y>
-      <w>220</w>
-      <h>40</h>
+      <x>250</x>
+      <y>610</y>
+      <w>230</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
+features
 m1=1
 m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;200.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>280</x>
-      <y>310</y>
-      <w>230</w>
-      <h>260</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=*
-m2=1
-</panel_attributes>
-    <additional_attributes>210.0;240.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>640</x>
+      <x>620</x>
       <y>20</y>
       <w>160</w>
       <h>140</h>
@@ -227,5 +201,19 @@ Barista
 Assistant-Barista
 Receptionist</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>470</y>
+      <w>70</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+applies
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
