@@ -31,7 +31,6 @@ public class Initializer  {
         
         tx.commit();       
     }
-    
 
     public void prepareData() {
 

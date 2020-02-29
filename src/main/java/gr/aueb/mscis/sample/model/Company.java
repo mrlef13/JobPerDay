@@ -1,8 +1,11 @@
 package gr.aueb.mscis.sample.model;
 import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 //import javax.persistence.Table;
 
@@ -15,7 +18,8 @@ private String compname;
 @Column(name = "AFM", length = 10, nullable = true)
 private String AFM;
 
-public HashSet<JobOffer> jobofferset = new HashSet<JobOffer>(); 
+@OneToMany(mappedBy="compid")
+public Set<JobOffer> jobofferset = new HashSet<JobOffer>(); 
 
 	public Company() {}
 	public Company(String email, String pass, String compname,String AFM) {

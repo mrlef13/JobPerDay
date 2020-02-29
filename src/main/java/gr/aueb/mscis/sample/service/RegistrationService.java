@@ -1,6 +1,8 @@
 package gr.aueb.mscis.sample.service;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
 import gr.aueb.mscis.sample.model.*;
 //import gr.aueb.mscis.sample.model.User;
 import gr.aueb.mscis.sample.persistence.JPAUtil;
@@ -22,6 +24,11 @@ public Employee registerEmployee (String email, String pass, String passver, Str
 		employee.setFirstName(firstname);
 		employee.setLastName(lastname);
 		employee.setphonenumber(phonenumber);
+		em.persist(employee);		
+		// new session, data will be retrieved from database	
+		EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        tx.commit();
 	return employee;
 	}
 	else return null;
