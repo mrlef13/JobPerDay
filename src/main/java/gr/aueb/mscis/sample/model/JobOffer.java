@@ -37,13 +37,16 @@ private int Payment;
 @Column(name = "Active", updatable = true, nullable = false)
 protected boolean active=true;
 
+@Column(name = "Job", updatable = true, nullable = false)
+protected String job;
+
 @JoinColumn(name="compid", nullable=false)
 private int compid;
 
 public JobOffer() {}
 
-public JobOffer(int id , Date Entrydate, int Entryhour, int Endhour, Date Exprirationdate, int Payment) {		
-	this.id=id;
+public JobOffer(JOB job,Date Entrydate, int Entryhour, int Endhour, Date Exprirationdate, int Payment) {			
+	this.job=job.toString();
 	this.Entrydate=Entrydate;
 	this.Entryhour=Entryhour;
 	this.Endhour=Endhour;
@@ -51,9 +54,11 @@ public JobOffer(int id , Date Entrydate, int Entryhour, int Endhour, Date Exprir
 	this.Payment=Payment;
 }
 	//int id , Date Entrydate, int Entryhour, int Endhour, Date Exprirationdate, int Payment, boolean active)
+/*
 public void setId(int id) {
 	this.id=id;
 }
+*/
 public int getId() {
 	return this.id;
 }
@@ -105,6 +110,21 @@ public void setEntrydate(Date Entrydate) {
 	public boolean getActive() {
 		return this.active;
 	}
+	
+	public int getCompid() {
+		return this.compid;
+	}
+	public void setCompid( int compid) {
+		this.compid=compid;
+	}
+	
+	public String getJob() {
+		return this.job;
+	}
+	public void setJob(String job) {
+		this.job=job;
+	}
+	
 	public boolean checkHour() {
 		if (this.Endhour>this.Entryhour && this.Endhour>=1 && this.Endhour<=24 && this.Entryhour>=0 && this.Entryhour<=23 ) {
 			return true;

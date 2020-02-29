@@ -24,7 +24,7 @@ public class User {
 	@Column(name = "id", updatable = false, nullable = false)
 	protected int id;
 	
-	@Column(name = "email", length = 50, nullable = false)
+	@Column(name = "email", length = 50, nullable = false,unique = true)
 	protected String email;
 
 	@Column(name = "password", length = 20, nullable = false)
@@ -32,15 +32,15 @@ public class User {
 
 	public User() {}
 
-	public User( int id ,String email, String password) {		
-		this.id=id;
+	public User( String email, String password) {		
+		//this.id=id;
 		this.email = email;
 		this.password = password;
 	}	
 
-	public void setId(int id) {
+	/*public void setId(int id) {
 		this.id=id;
-	}
+	}*/
 	
 	public void setEmail(String email) {
 		this.email = email;

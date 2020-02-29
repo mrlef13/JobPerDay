@@ -26,6 +26,8 @@ protected EntityManager em;
 	
 	@After
 	public void tearDown(){
+		//Initializer dataHelper = new Initializer();
+		//dataHelper.eraseData();
 		em.close();
 	}
 	
@@ -39,7 +41,7 @@ protected EntityManager em;
 		Employee savedEmployee = em.find(Employee.class, newEmployee.getId()); 
 		
 		em = JPAUtil.getCurrentEntityManager();	
-		em.persist(savedEmployee);		
+		//em.persist(savedEmployee);		
 		// new session, data will be retrieved from database	
 		EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -52,7 +54,7 @@ protected EntityManager em;
 	public void testPersistAnInvalidEmployee(){
 		
 		RegistrationService service = new RegistrationService();
-		Employee newEmployee = service.registerEmployee("xxx111@kkk.com", "denmpaineis", "denmp", "Nikos", "Fousekis", "0904987333");
+		Employee newEmployee = service.registerEmployee("xxx4111@kkk.com", "denmpaineis", "denmp", "Nikos", "Fousekis", "0904987333");
 		// EntityManager.persist() updates the ID of the persisted object
 		//Assert.assertNotEquals(0, newEmployee.getemployeeid());		
 		Assert.assertNull(newEmployee);
@@ -62,9 +64,9 @@ protected EntityManager em;
 	public void testPersistAValidCompany(){		
 		RegistrationService service = new RegistrationService();
 		Company newCompany = service.registerCompany("myCompany@aueb.com", "denmpaineis", "denmpaineis", "AUEB test", "1023785446");
-		Company savedCompany = em.find(Company.class, newCompany.getId());
+		//Company savedCompany = em.find(Company.class, newCompany.getId());
 		em = JPAUtil.getCurrentEntityManager();	
-		em.persist(newCompany);		
+		//em.persist(newCompany);		
 		//Assert.assertEquals(0, savedCompany.getId());		
 		Assert.assertNotNull(newCompany);
 	}

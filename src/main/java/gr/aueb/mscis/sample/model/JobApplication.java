@@ -5,33 +5,38 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "JOBOFFERS")
+@Table(name = "APPLICATIONS")
 public class JobApplication {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", updatable = false, nullable = false)
 	protected int id;
 	
-	@Column(name = "compver",insertable=false, updatable = true, nullable = false)
+	@Column(name = "compver",insertable=true, updatable = true, nullable = false)
 	protected boolean compver=false;			
 	
-	@Column(name = "empver",insertable=false, updatable = true, nullable = false)
+	@Column(name = "empver",insertable=true, updatable = true, nullable = false)
 	protected boolean empver=false;
+	
+	@JoinColumn(name="empid", nullable=false)
+	private int empid;
 	
 	public JobApplication() {}
 	
-	public JobApplication(int id,boolean compver,boolean empver) {
-		this.id=id;
+	public JobApplication(boolean compver,boolean empver) {
+		//this.id=id;
 		this.compver=compver;
 		this.empver=empver;
 	}
-	public void setId(int id) {
+	/*
+	public void setId(int id){
 		this.id=id;
 	}
-	
+	*/
 	public int getId() {
 		return id;
 	} 

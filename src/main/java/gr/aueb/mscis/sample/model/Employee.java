@@ -1,11 +1,13 @@
 package gr.aueb.mscis.sample.model;
 import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 //import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 //import javax.persistence.Table;
+import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("employee")
@@ -29,6 +31,8 @@ public class Employee extends User {
 	@Column(name="Available", length= 1, nullable=true)
 	public Boolean availability=true;
 	
+	@OneToMany(mappedBy="empid")
+	public Set<JobApplication> applicationset = new HashSet<JobApplication>(); 
 	
 	public Employee() {}
 	public Employee(String email, String pass, String firstname, String lastname, String phonenumber) {
@@ -47,15 +51,6 @@ public class Employee extends User {
 	
 	public String getLastName () {return this.LastName; }
 	public void setLastName (String x) {this.LastName=x;}
-	
-	
-	
-	/*
-	public Boolean RegistrationEmployee(User u) {
-		this.email=u.getEmail();
-		this.password=u.getPassword();
-		    return true;
-	}
-	*/
+		
 	
 }

@@ -27,6 +27,8 @@ public class JobOfferServiceTest {
 		
 		@After
 		public void tearDown(){
+			//Initializer dataHelper = new Initializer();
+			//dataHelper.eraseData();
 			em.close();
 		}
 		
@@ -34,18 +36,23 @@ public class JobOfferServiceTest {
 		public void testPersistVallidOffer(){
 			
 			JobOfferService service = new JobOfferService();
-			JobOffer newJobOffer = service.createJoboffer(112, JOB.Barista, "22/02/2020", 13, 18, "25/02/2020", 8);
+			JobOffer newJobOffer = service.createJoboffer("company@prepare.com", JOB.Barista, "22/02/2020", 13, 18, "25/02/2020", 8);
 			// EntityManager.persist() updates the ID of the persisted object
 			//Assert.assertNotEquals(0, newEmployee.getemployeeid());
-			JobOffer savedJobOffer = em.find(JobOffer.class, newJobOffer.getId()); 
+			//JobOffer savedJobOffer = em.find(JobOffer.class, newJobOffer.getId()); 
 			em = JPAUtil.getCurrentEntityManager();	
+			EntityTransaction tx = em.getTransaction();			
+			
+			tx.begin();
 			if (newJobOffer.checkHour()) {
-				em.persist(newJobOffer);	
+				em.persist(newJobOffer);
 			}
 			// new session, data will be retrieved from database			
-			EntityTransaction tx = em.getTransaction();
-	        tx.begin();
+			
 	        tx.commit();
+	       
+	        JobOffer savedJobOffer=em.find(JobOffer.class, newJobOffer.getId());
+	        Assert.assertEquals("Barista",savedJobOffer.getJob());
 			Assert.assertNotNull(newJobOffer);
 		//	Assert.assertEquals(0, savedEmployee.getId());
 		}
@@ -53,7 +60,7 @@ public class JobOfferServiceTest {
 		public void testPersistInvalidJobOffer(){
 			
 			JobOfferService service = new JobOfferService();
-			JobOffer newJobOffer = service.createJoboffer(112, JOB.Barista, "22/02/2020", 18 , 13, "25/02/2020", 8);
+			JobOffer newJobOffer = service.createJoboffer("company@prepare.com", JOB.Barista, "22/02/2020", 18 , 13, "25/02/2020", 8);
 			// EntityManager.persist() updates the ID of the persisted object
 			//Assert.assertNotEquals(0, newEmployee.getemployeeid());
 			JobOffer savedJobOffer = em.find(JobOffer.class, newJobOffer.getId()); 

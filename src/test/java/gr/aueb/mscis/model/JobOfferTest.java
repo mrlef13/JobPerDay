@@ -21,10 +21,11 @@ public class JobOfferTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
-		JobOffer c= new JobOffer(101,d,2,5,date1,8);
+		JobOffer c= new JobOffer(JOB.Delivery,d,2,5,date1,8);
 		
 		//public JobOffer(int id , Date Entrydate, int Entryhour, int Endhour, Date Exprirationdate, int Payment, boolean active) {
-		Assert.assertEquals(101, c.getId());
+		//Assert.assertEquals(101, c.getId());		
+		Assert.assertEquals("Delivery", c.getJob());
 		Assert.assertEquals(d, c.getEntrydate());
 		Assert.assertEquals(2, c.getEntryHour());
 		Assert.assertEquals(5, c.getEndhour());
