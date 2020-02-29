@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
-
+import javax.persistence.ManyToOne;
 @Entity
 @Table(name = "APPLICATIONS")
 public class JobApplication {
@@ -24,6 +24,11 @@ public class JobApplication {
 	
 	@JoinColumn(name="empid", nullable=false)
 	private int empid;
+	
+	@ManyToOne
+	@JoinColumn(name="offerref",nullable = true)
+	private JobOffer offer;
+
 	
 	public JobApplication() {}
 	
@@ -55,5 +60,13 @@ public class JobApplication {
 	
 	public boolean getEmpver() {
 		return empver;
+	}
+
+	public int getEmpid() {
+		return empid;
+	}
+
+	public void setEmpid(int empid) {
+		this.empid = empid;
 	}
 }

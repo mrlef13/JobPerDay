@@ -8,8 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import java.util.Date;
-
-
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.OneToMany;
 @Entity
 @Table(name = "JOBOFFERS")
 public class JobOffer {
@@ -42,6 +43,10 @@ protected String job;
 
 @JoinColumn(name="compid", nullable=false)
 private int compid;
+
+
+@OneToMany(mappedBy="offer")
+public Set<JobApplication> apps = new HashSet<JobApplication>() ;
 
 public JobOffer() {}
 

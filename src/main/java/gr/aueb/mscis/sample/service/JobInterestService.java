@@ -23,12 +23,12 @@ public class JobInterestService {
 		Query query = em.createQuery("select r from JobOffer r where Job like :job");
 		//System.out.println(email);
 		query.setParameter("job", job.toString());
-		//query.setParameter("status",1);
+		//query.setParameter("status",true);
 		//query.setParameter("currentdate",date1);
 		List<JobOffer> results = query.getResultList();
 		
+		/*
 		Query query1 = em.createQuery("select r from User r");
-
 		List<User> userlist = query1.getResultList();		
 		
 		for (User u : userlist){
@@ -38,16 +38,22 @@ public class JobInterestService {
 		for (JobOffer i : results){
 			System.out.println("Comany id: "+i.getCompid()+" , jobofferid: "+i.getId()+" --> "+ i.getJob());
 		}
-		
+		*/
 		
 		return results;
 	}
 
-	public void employeeInterset(int employeeid,int jobofferid) {
+	public JobApplication employeeInterest(int employeeid,int jobofferid) {
 				
 		JobApplication app = new JobApplication();
 		
+		Employee e = em.find(Employee.class,employeeid);
 		
+		app.setEmpid(employeeid);
+		e.applicationset.add(app);
+		
+		em.persist(app);
+		return app;
 }
 
 	
