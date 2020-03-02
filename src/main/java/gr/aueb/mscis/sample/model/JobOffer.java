@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,6 +23,7 @@ public class JobOffer {
 @Column(name = "id", updatable = false, nullable = false)
 protected int id;
 
+@Temporal(TemporalType.DATE)
 @Column(name = "Entrydate", updatable = false, nullable = false)
 private Date Entrydate;
 
@@ -29,6 +33,7 @@ private int Entryhour;
 @Column(name = "Endhour", updatable = false, nullable = false)
 private int Endhour;
 
+@Temporal(TemporalType.DATE)
 @Column(name = "Expirationdate", updatable = false, nullable = false)
 private Date Exprirationdate;
 
@@ -46,7 +51,7 @@ private int compid;
 
 
 @OneToMany(mappedBy="offer")
-public Set<JobApplication> apps = new HashSet<JobApplication>() ;
+public Set<JobApplication> apps = new HashSet<JobApplication>();
 
 public JobOffer() {}
 
@@ -58,12 +63,7 @@ public JobOffer(JOB job,Date Entrydate, int Entryhour, int Endhour, Date Exprira
 	this.Exprirationdate=Exprirationdate;
 	this.Payment=Payment;
 }
-	//int id , Date Entrydate, int Entryhour, int Endhour, Date Exprirationdate, int Payment, boolean active)
-/*
-public void setId(int id) {
-	this.id=id;
-}
-*/
+
 public int getId() {
 	return this.id;
 }

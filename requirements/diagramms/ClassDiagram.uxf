@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>190</x>
+      <y>510</y>
+      <w>180</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>JobOffer
+--
+#id:int
+-Entrydate:Date 
+-Entryhour:int 
+-Endhour:int 
+-Exprirationdate:Date
+-Payment:int 
+#active:Boolean=true
+--
++getId():int
++setEntrydate(Entrydate:Date)
++setEntryHour(Entryhour:int)
++setEndhour(Endhour:int)
++setExprirationdate(Exprirationdate:Date)
++setPayment(Payment:int)
++setActive(active:Boolean)
++getEntrydate():int
++getEntryHour():int
++getEndhour():int
++getExprirationdate():Date
++getPayment():int
++getActive():boolean
++checkHour():boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>190</x>
+      <y>280</y>
+      <w>180</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Company
+--
+#compname:String
+#AFM:String
+--
++setCompname(compname:String)
++setAFM(AFM:String)
++getCompname():String
++getAFM():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>510</x>
+      <y>280</y>
+      <w>280</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Employee
+--
+#phonenumber:String 
+#FirstName:String 
+#LastName:String 
++availability:Boolean=true
+--
++getphonenumber():String
++setphonenumber(phonenumber:String)
++getFirstName():String 
++setFirstName(FirstName:String)
++getLastName():String 
++setLastName(LastName:String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>560</x>
+      <y>580</y>
+      <w>180</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>JobApplication
+--
+#id:int
+#Compver:boolean=false
+#Empver:boolean=false
+--
++getId():int 
++setCompver(Compver:boolean)
++getCompver():boolean
++setEmpver(Empver:boolean)
++getEmpver():boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>390</x>
+      <y>0</y>
+      <w>210</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>User
+--
+#id:int
+#email:String
+#password:String
+--
++setEmail(email:String)
++setPassword(password:String)
++getId():int  
++getEmail():String
++getPassword():String 
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>190</y>
+      <w>200</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+extends</panel_attributes>
+    <additional_attributes>10.0;90.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>190</y>
+      <w>120</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+extends</panel_attributes>
+    <additional_attributes>90.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>400</y>
+      <w>90</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+manages
+m1=*
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>610</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+features
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>20</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+JOB
+--
+Delivery
+Chef
+Sous-Chef
+Waiter
+Assistant-Waiter
+Barista
+Assistant-Barista
+Receptionist</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>470</y>
+      <w>70</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+applies
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

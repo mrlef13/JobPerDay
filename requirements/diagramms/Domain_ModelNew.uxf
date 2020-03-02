@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>171</x>
+      <y>414</y>
+      <w>162</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>JobOffer
+--
+startdate: date
+startHour: HOUR
+endHour: HOUR
+availableDate: datetime
+payment: Money
+isActive: bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>171</x>
+      <y>207</y>
+      <w>162</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Company
+--
+afm:AFM
+comp_name:String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>405</x>
+      <y>207</y>
+      <w>207</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Employee
+--
+phonenumber: PHONENUMBER
+first_name: String
+last_name: String
+JobList: JOB
+availability: Bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>432</x>
+      <y>414</y>
+      <w>162</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>JobApplication
+--
+Comp_ver:bool
+Emp_ver:bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>297</x>
+      <y>27</y>
+      <w>162</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>User
+--
+user_mail:EMAIL
+user_pass:PASSWORD
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>225</x>
+      <y>99</y>
+      <w>126</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+
+extends</panel_attributes>
+    <additional_attributes>10.0;120.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>396</x>
+      <y>99</y>
+      <w>108</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+extends</panel_attributes>
+    <additional_attributes>90.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>234</x>
+      <y>279</y>
+      <w>81</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+manages
+m1=*
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>315</y>
+      <w>63</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+applies
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>441</y>
+      <w>126</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+features
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+</diagram>

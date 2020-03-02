@@ -44,13 +44,13 @@ public class Employee extends User {
 	}
 	
 	public String getphonenumber () {return this.phonenumber; }
-	public void setphonenumber (String x) {this.phonenumber=x;}
+	public void setphonenumber (String phonenumber) {this.phonenumber=phonenumber;}
 	
 	public String getFirstName () {return this.FirstName; }
-	public void setFirstName (String x) {this.FirstName=x;}
+	public void setFirstName (String FirstName) {this.FirstName=FirstName;}
 	
 	public String getLastName () {return this.LastName; }
-	public void setLastName (String x) {this.LastName=x;}
+	public void setLastName (String LastName) {this.LastName=LastName;}
 		
 	
 }
