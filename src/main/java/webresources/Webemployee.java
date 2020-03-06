@@ -7,6 +7,23 @@ public class Webemployee {
 
 @XmlElement
 private String email;
+
+@XmlElement
+private String pass;
+@XmlElement
+private String passver;
+public String getPass() {
+	return pass;
+}
+public void setPass(String pass) {
+	this.pass = pass;
+}
+public String getPassver() {
+	return passver;
+}
+public void setPassver(String passver) {
+	this.passver = passver;
+}
 @XmlElement
 private String first;
 @XmlElement

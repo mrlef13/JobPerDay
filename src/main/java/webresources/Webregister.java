@@ -10,23 +10,21 @@ public class Webregister {
 
 @POST
 @Consumes("application/xml")
-public Response createEmployee(@PathParam("email") String email,@PathParam("email")  String pass,@PathParam("pass")  String passver,@PathParam("verpass")  String firstname,@PathParam("first")  String lastname,@PathParam("phone")  String phonenumber) {
+public Response createEmployee(Webemployee webemployee) {
 	
 	RegistrationService service  = new RegistrationService(); 
-	
-	try {
-	Employee employee =service.registerEmployee(email, pass, passver, firstname, lastname, phonenumber);
-	Webemployee webemployee = new Webemployee();
+		
+	//Employee employee =service.registerEmployee(email, pass, passver, firstname, lastname, phonenumber);
+	Employee employee =service.registerEmployee(webemployee.getEmail(), webemployee.getPass(), webemployee.getPassver(), webemployee.getFirst(), webemployee.getLast(), webemployee.getPhone());
+	/*
 	webemployee.setEmail(employee.getEmail());
 	webemployee.setFirst(employee.getFirstName());
 	webemployee.setLast(employee.getLastName());
 	webemployee.setPhone(employee.getphonenumber());
+	*/
+	if (employee.getId()>0)	return Response.ok().build();
+	else return Response.noContent().build();
 	
-	return Response.ok().build();
-	} catch(NullPointerException e)
-	{
-		return Response.noContent().build();
-	}
 	
 	}
 }
