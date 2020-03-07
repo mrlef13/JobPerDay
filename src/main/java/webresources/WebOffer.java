@@ -7,8 +7,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-
-import gr.aueb.mscis.sample.model.Company;
 import gr.aueb.mscis.sample.model.JOB;
 import gr.aueb.mscis.sample.model.JobOffer;
 import gr.aueb.mscis.sample.service.JobOfferService;
@@ -20,20 +18,25 @@ public class WebOffer {
 	
 
 @POST
-@Consumes(MediaType.APPLICATION_XML)
+@Consumes(MediaType.APPLICATION_JSON)
 public Response createJobOffer(Webjoboffer webjoboffer) {
+	JobOffer joboffer= new JobOffer();
+	JobOfferService service  = new JobOfferService();
 	
-	JobOfferService service  = new JobOfferService(); 	
-
-	//for (JOB j : JOB.values()) {
-     //   if (Job==j.toString()) {
-      //      JobOfferService service2  = new JobOfferService();
-      //      jobOffers=service.JobOffers(j);
-        //    break;
-	JobOffer joboffer =service.createJoboffer(webjoboffer.getemail(), webjoboffer.getJob(), webjoboffer.getEntrydate(), webjoboffer.getEntryhour(), webjoboffer.getEndhour(), webjoboffer.getExpirationdate(), webjoboffer.getPayment());
+	System.out.println("Peos -->"+webjoboffer.getEmail()+" "+ webjoboffer.getJob()+" "+ webjoboffer.getEntryDate()+" "+ webjoboffer.getEntryHour()+" "+ webjoboffer.getEndHour()+" "+ webjoboffer.getExpirationDate()+" "+ webjoboffer.getPayment());
 	
-	return Response.ok().build();
-
+	
+	for (JOB j : JOB.values()) {
+		System.out.println(webjoboffer.getJob()+"="+j.toString());
+        if (webjoboffer.getJob().equals(j.toString())) {
+        	System.out.println("true");
+            joboffer =service.createJoboffer(webjoboffer.getEmail(), j, webjoboffer.getEntryDate(), webjoboffer.getEntryHour(), webjoboffer.getEndHour(), webjoboffer.getExpirationDate(), webjoboffer.getPayment());           
+            break;
+        }
+    }
+		 
+	if (joboffer.getId()>0)	return Response.ok().build();
+	else return Response.noContent().build();
 	}
 
 }
