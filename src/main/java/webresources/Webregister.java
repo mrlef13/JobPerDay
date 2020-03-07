@@ -8,6 +8,7 @@ import javax.ws.rs.client.*;
 import gr.aueb.mscis.sample.model.Employee;
 import gr.aueb.mscis.sample.persistence.JPAUtil;
 import gr.aueb.mscis.sample.service.RegistrationService;
+import gr.aueb.mscis.sample.model.Company;
 
 @Path("registration")
 public class Webregister {
@@ -41,4 +42,18 @@ public Response createEmployee(Webemployee webemployee) {
 	return Response.ok().build();
 	//return Response.created(newURI).build();
 	}
+
+@POST
+@Consumes(MediaType.APPLICATION_XML)
+public Response createCompany(Webcompany webcompany) {
+	
+	RegistrationService service  = new RegistrationService(); 	
+	
+	System.out.println("Get this:---> "+webcompany.getEmail()+" "+webcompany.getPass()+" "+ webcompany.getPassver()+" "+ webcompany.getCompname()+" "+ webcompany.getAFM());
+	Company company =service.registerCompany(webcompany.getEmail(), webcompany.getPass(), webcompany.getPassver(), webcompany.getCompname(), webcompany.getAFM());
+	
+	return Response.ok().build();
+	
+	}
 }
+

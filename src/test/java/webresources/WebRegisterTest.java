@@ -51,4 +51,13 @@ public class WebRegisterTest extends JerseyTest {
 		System.out.println(response.getStatus());
 		Assert.assertEquals(Status.OK.getStatusCode(),response.getStatus());
 	}
+	@Test
+	public void testCreateCompany() {
+		
+		Webcompany webcompany = new Webcompany("andbrou","1234","1234","LefKo","999");
+		System.out.println(Entity.entity(webcompany, MediaType.APPLICATION_XML));
+		Response response = target("/registration").request().post(Entity.entity(webcompany, MediaType.APPLICATION_XML));
+		System.out.println(response.getStatus());
+		Assert.assertEquals(Status.OK.getStatusCode(),response.getStatus());
+	}
 }
