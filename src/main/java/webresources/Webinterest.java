@@ -1,5 +1,9 @@
 package webresources;
+import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
+import org.glassfish.jersey.server.ResourceConfig;
 
+import java.net.URI;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -17,7 +21,9 @@ import gr.aueb.mscis.sample.service.JobInterestService;
 @Path("interest")
 public class Webinterest {
 
-	
+	final ResourceConfig rc=new ResourceConfig().packages("webresources");
+	String BASE_URI="http://localhost:9000/jpd/webresources";
+	HttpServer server=GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI),rc);
 @GET
 @Produces(MediaType.APPLICATION_XML)
 public List<JobOffer> getActiveJobOffers(@QueryParam("job") String job) {
@@ -25,17 +31,15 @@ public List<JobOffer> getActiveJobOffers(@QueryParam("job") String job) {
 	List<JobOffer> joboffers = null;
 	
 	for (JOB j : JOB.values()) {
-		if (job==j.toString()) {
+		if (job.equals(j.toString())) {
 			JobInterestService service  = new JobInterestService();
 			joboffers=service.searchJobOffers(j);
+			System.out.println("This is my new test; you fucking bitch -->"+joboffers.size());
 			break;
 		}
-	}
-	
-	/*
-	 * TODO: need a new list of webclass and assign every  
-	 * 
-	 * */
+	}	
 	return joboffers;
 	}
+
+
 }

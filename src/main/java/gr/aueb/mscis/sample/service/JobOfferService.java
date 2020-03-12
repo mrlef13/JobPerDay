@@ -1,6 +1,7 @@
 package gr.aueb.mscis.sample.service;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import java.text.ParseException;
@@ -29,7 +30,8 @@ public class JobOfferService {
 		
 		List<Company> results = query.getResultList();		
 		//@SuppressWarnings("unused")
-		int compid =results.get(0).getId();
+		Company company=results.get(0);
+		//int compid =results.get(0).getId();
 		//System.out.println(compid);
 	    Date date1 = null;
 		try {
@@ -45,11 +47,27 @@ public class JobOfferService {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		joboffer.setExprirationdate(date1);		
+		EntityTransaction tx = em.getTransaction();
+		joboffer.setExprirationdate(date1);
 		//comp.setId(comp_id);
-		joboffer.setCompid(compid);
+		System.out.println("in job offer service:"+company.getId());
+		joboffer.setCompid(company.getId());
+		joboffer.setPayment(payment);
 		joboffer.setJob(job.toString());
-		results.get(0).jobofferset.add(joboffer);
+		company.jobofferset.add(joboffer);
+		
+		tx.begin();
+		if (joboffer.checkHour()) {
+			em.persist(company);
+			em.persist(joboffer);
+		}
+		// new session, data will be retrieved from database			
+		
+        tx.commit();
+		
+		
+		
+		System.out.println("in job offer service:"+joboffer.getId());
 		return joboffer;
 	}
 	

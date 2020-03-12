@@ -30,7 +30,9 @@ public Response createJobOffer(Webjoboffer webjoboffer) {
 		System.out.println(webjoboffer.getJob()+"="+j.toString());
         if (webjoboffer.getJob().equals(j.toString())) {
         	System.out.println("true");
-            joboffer =service.createJoboffer(webjoboffer.getEmail(), j, webjoboffer.getEntryDate(), webjoboffer.getEntryHour(), webjoboffer.getEndHour(), webjoboffer.getExpirationDate(), webjoboffer.getPayment());           
+            joboffer =service.createJoboffer(webjoboffer.getEmail(), j, webjoboffer.getEntryDate(), webjoboffer.getEntryHour(), webjoboffer.getEndHour(), webjoboffer.getExpirationDate(), webjoboffer.getPayment());
+            //joboffer =service.createJoboffer(webjoboffer.getEmail(), j, webjoboffer.getEntryDate(), webjoboffer.getEntryHour(), webjoboffer.getEndHour(), webjoboffer.getExpirationDate(), webjoboffer.getPayment());
+            System.out.println(joboffer.getId());
             break;
         }
     }

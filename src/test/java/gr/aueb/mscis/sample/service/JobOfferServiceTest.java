@@ -40,19 +40,11 @@ public class JobOfferServiceTest {
 			// EntityManager.persist() updates the ID of the persisted object
 			//Assert.assertNotEquals(0, newEmployee.getemployeeid());
 			//JobOffer savedJobOffer = em.find(JobOffer.class, newJobOffer.getId()); 
-			em = JPAUtil.getCurrentEntityManager();	
-			EntityTransaction tx = em.getTransaction();			
-			
-			tx.begin();
-			if (newJobOffer.checkHour()) {
-				em.persist(newJobOffer);
-			}
-			// new session, data will be retrieved from database			
-			
-	        tx.commit();
-	       
+			em = JPAUtil.getCurrentEntityManager();							
 	        JobOffer savedJobOffer=em.find(JobOffer.class, newJobOffer.getId());
+	        System.out.println("in test: "+savedJobOffer.getId()+", "+savedJobOffer.getJob()+", "+savedJobOffer.getPayment());
 	        Assert.assertEquals("Barista",savedJobOffer.getJob());
+	        Assert.assertEquals(8,savedJobOffer.getPayment());
 			Assert.assertNotNull(newJobOffer);
 		//	Assert.assertEquals(0, savedEmployee.getId());
 		}
