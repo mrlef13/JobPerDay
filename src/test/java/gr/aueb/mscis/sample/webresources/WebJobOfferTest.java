@@ -1,4 +1,4 @@
-package webresources;
+package gr.aueb.mscis.sample.webresources;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Application;

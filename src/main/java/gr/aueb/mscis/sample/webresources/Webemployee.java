@@ -1,4 +1,4 @@
-package webresources;
+package gr.aueb.mscis.sample.webresources;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

@@ -1,4 +1,4 @@
-package webresources;
+package gr.aueb.mscis.sample.webresources;
 import java.net.URI;
 
 import javax.persistence.EntityManager;

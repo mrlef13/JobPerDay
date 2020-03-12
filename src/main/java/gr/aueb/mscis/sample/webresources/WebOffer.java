@@ -1,4 +1,4 @@
-package webresources;
+package gr.aueb.mscis.sample.webresources;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;

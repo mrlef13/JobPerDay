@@ -1,4 +1,4 @@
-package webresources;
+package gr.aueb.mscis.sample.webresources;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -21,9 +21,7 @@ import gr.aueb.mscis.sample.service.JobInterestService;
 @Path("interest")
 public class Webinterest {
 
-	final ResourceConfig rc=new ResourceConfig().packages("webresources");
-	String BASE_URI="http://localhost:9000/jpd/webresources";
-	HttpServer server=GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI),rc);
+	
 @GET
 @Produces(MediaType.APPLICATION_XML)
 public List<JobOffer> getActiveJobOffers(@QueryParam("job") String job) {

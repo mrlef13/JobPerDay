@@ -1,29 +1,37 @@
-package webresources;
+package gr.aueb.mscis.sample.webresources;
+
+import java.net.URI;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.Response.Status;
 
+import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.spi.TestContainerFactory;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 
 import gr.aueb.mscis.sample.persistence.Initializer;
 import gr.aueb.mscis.sample.persistence.JPAUtil;
-import webresources.Webemployee;
 import junit.framework.Assert;
 
 public class WebRegisterTest extends JerseyTest {
 	private Initializer dataHelper;
-	
+	    	
 	@Override
 	protected Application configure() {
 		
