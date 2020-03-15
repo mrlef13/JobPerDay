@@ -18,42 +18,23 @@ public class Webregister {
 	
 
 @POST
-@Consumes(MediaType.APPLICATION_JSON)
+@Path("employee")
+@Consumes(MediaType.APPLICATION_XML)
 public Response createEmployee(Webemployee webemployee) {
 	
-	RegistrationService service  = new RegistrationService(); 	
-	//Employee employee =service.registerEmployee(email, pass, passver, firstname, lastname, phonenumber);
-	
-	System.out.println("Get this:---> "+webemployee.getEmail()+" "+webemployee.getPass()+" "+ webemployee.getPassver()+" "+ webemployee.getFirst()+" "+ webemployee.getLast()+" "+ webemployee.getPhone());
-	Employee employee =service.registerEmployee(webemployee.getEmail(), webemployee.getPass(), webemployee.getPassver(), webemployee.getFirst(), webemployee.getLast(), webemployee.getPhone());
-	/*
-	webemployee.setEmail(employee.getEmail());
-	webemployee.setFirst(employee.getFirstName());
-	webemployee.setLast(employee.getLastName());
-	webemployee.setPhone(employee.getphonenumber());
-	*/
-	//UriBuilder ub = uriInfo.getAbsolutePathBuilder();
-	//URI newURI = ub.path(Integer.toString(employee.getId())).build();
-	/*
-	if (employee.getId()>0)	return Response.ok().build();
-	else return Response.noContent().build();
-	*/
-	//System.out.println("Get response: --> "+ Response.created(newURI).build());
+	RegistrationService service  = new RegistrationService(); 				
+	Employee employee =service.registerEmployee(webemployee.getEmail(), webemployee.getPass(), webemployee.getPassver(), webemployee.getFirst(), webemployee.getLast(), webemployee.getPhone());	
 	return Response.ok().build();
-	//return Response.created(newURI).build();
+
 	}
 
 @POST
+@Path("company")
 @Consumes(MediaType.APPLICATION_XML)
 public Response createCompany(Webcompany webcompany) {
-	
-	RegistrationService service  = new RegistrationService(); 	
-	
-	System.out.println("Get this:---> "+webcompany.getEmail()+" "+webcompany.getPass()+" "+ webcompany.getPassver()+" "+ webcompany.getCompname()+" "+ webcompany.getAFM());
-	Company company =service.registerCompany(webcompany.getEmail(), webcompany.getPass(), webcompany.getPassver(), webcompany.getCompname(), webcompany.getAFM());
-	
-	return Response.ok().build();
-	
+	RegistrationService service  = new RegistrationService(); 			
+	Company company =service.registerCompany(webcompany.getEmail(), webcompany.getPass(), webcompany.getPassver(), webcompany.getCompname(), webcompany.getAFM());	
+	return Response.ok().build();	
 	}
 }
 

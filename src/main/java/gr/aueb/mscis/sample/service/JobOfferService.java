@@ -50,7 +50,7 @@ public class JobOfferService {
 		EntityTransaction tx = em.getTransaction();
 		joboffer.setExprirationdate(date1);
 		//comp.setId(comp_id);
-		System.out.println("in job offer service:"+company.getId());
+		//System.out.println("in job offer service:"+company.getId());
 		joboffer.setCompid(company.getId());
 		joboffer.setPayment(payment);
 		joboffer.setJob(job.toString());
@@ -67,7 +67,7 @@ public class JobOfferService {
 		
 		
 		
-		System.out.println("in job offer service:"+joboffer.getId());
+        //System.out.println("in job offer service:"+joboffer.getId());
 		return joboffer;
 	}
 	

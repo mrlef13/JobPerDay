@@ -30,6 +30,14 @@ public class JobApplication {
 	private JobOffer offer;
 
 	
+	public JobOffer getOffer() {
+		return offer;
+	}
+
+	public void setOffer(JobOffer offer) {
+		this.offer = offer;
+	}
+
 	public JobApplication() {}
 	
 	public JobApplication(boolean compver,boolean empver) {

@@ -49,23 +49,19 @@ public class WebRegisterTest extends JerseyTest {
 		super();
 	}
 	
+	
 	@Test
 	public void testCreateEmployee() {
 		
-//		Movie movie = new Movie("Halvai", 2020, "Seferlis");
-		Webemployee webemployee = new Webemployee("lefko","lala","lala","And","Brou","666");
-		System.out.println(Entity.entity(webemployee, MediaType.APPLICATION_JSON));
-		Response response = target("/registration").request().post(Entity.entity(webemployee, MediaType.APPLICATION_JSON));
-		System.out.println(response.getStatus());
+		Webemployee webemployee = new Webemployee("lefko","lala","lala","And","Brou","666");		
+		Response response = target("/registration/employee").request().post(Entity.entity(webemployee, MediaType.APPLICATION_XML));		
 		Assert.assertEquals(Status.OK.getStatusCode(),response.getStatus());
 	}
+	
 	@Test
-	public void testCreateCompany() {
-		
-		Webcompany webcompany = new Webcompany("andbrou","1234","1234","LefKo","999");
-		System.out.println(Entity.entity(webcompany, MediaType.APPLICATION_XML));
-		Response response = target("/registration").request().post(Entity.entity(webcompany, MediaType.APPLICATION_XML));
-		System.out.println(response.getStatus());
+	public void testCreateCompany() {	
+		Webcompany webcompany = new Webcompany("andbrou","1234","1234","LefKo","999");		
+		Response response = target("/registration/company").request().post(Entity.entity(webcompany, MediaType.APPLICATION_XML));		
 		Assert.assertEquals(Status.OK.getStatusCode(),response.getStatus());
 	}
 }

@@ -42,7 +42,7 @@ public class JobOfferServiceTest {
 			//JobOffer savedJobOffer = em.find(JobOffer.class, newJobOffer.getId()); 
 			em = JPAUtil.getCurrentEntityManager();							
 	        JobOffer savedJobOffer=em.find(JobOffer.class, newJobOffer.getId());
-	        System.out.println("in test: "+savedJobOffer.getId()+", "+savedJobOffer.getJob()+", "+savedJobOffer.getPayment());
+	        //System.out.println("in test: "+savedJobOffer.getId()+", "+savedJobOffer.getJob()+", "+savedJobOffer.getPayment());
 	        Assert.assertEquals("Barista",savedJobOffer.getJob());
 	        Assert.assertEquals(8,savedJobOffer.getPayment());
 			Assert.assertNotNull(newJobOffer);

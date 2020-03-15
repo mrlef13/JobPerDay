@@ -39,16 +39,11 @@ public class WebJobOfferTest extends JerseyTest {
 	@Test
 	public void testCreateJobOffer() {
 		
-//		Movie movie = new (JOB Job,String Entrydate, int Entryhour, int Endhour, String Exprirationdate, int Payment)
 		Webjoboffer webjoboffer = new Webjoboffer("company@prepare.com","Barista","10/06/2020",10,19,"19/06/2020",100);
 		Webjoboffer webjoboffer1 = new Webjoboffer("company@prepare.com","Chef","11/06/2020",10,19,"20/06/2020",50);
-		//System.out.println(webjoboffer.getemail()+" "+ webjoboffer.getJob()+" "+ webjoboffer.getEntrydate()+" "+ webjoboffer.getEntryhour()+" "+ webjoboffer.getEndhour()+" "+ webjoboffer.getExpirationdate()+" "+ webjoboffer.getPayment());
-		System.out.println(Entity.entity(webjoboffer, MediaType.APPLICATION_JSON));
-		System.out.println(Entity.entity(webjoboffer1, MediaType.APPLICATION_JSON));
+	
 		Response response = target("/joboffer").request().post(Entity.entity(webjoboffer, MediaType.APPLICATION_JSON));
 		Response response1 = target("/joboffer").request().post(Entity.entity(webjoboffer1, MediaType.APPLICATION_JSON));
-		System.out.println(response.getStatus());
-		System.out.println(response1.getStatus());
 		Assert.assertEquals(Status.OK.getStatusCode(),response.getStatus());
 		Assert.assertEquals(Status.OK.getStatusCode(),response1.getStatus());
 	}

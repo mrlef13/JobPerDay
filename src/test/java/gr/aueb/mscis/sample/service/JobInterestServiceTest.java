@@ -34,8 +34,7 @@ public class JobInterestServiceTest {
 		@Test
 		public void testPersistSearchJob(){			
 			JobInterestService service = new JobInterestService();
-			List<JobOffer> joboffers = service.searchJobOffers(JOB.Chef);
-			System.out.println(joboffers.size());
+			List<JobOffer> joboffers = service.searchJobOffers(JOB.Chef);			
 			Assert.assertEquals(2,joboffers.size());							
 		}
 		
@@ -43,8 +42,8 @@ public class JobInterestServiceTest {
 		public void testEmployeeInterest(){			
 			JobInterestService service = new JobInterestService();
 			Employee e = searchEmployee("employee@prepare.com");
-			
-			JobApplication application = service.employeeInterest(e.getId(),1);
+			JobOffer offer= searchOffer("company@prepare.com","Chef");
+			JobApplication application = service.employeeInterest(e.getId(),offer.getId());
 			
 			JobApplication savedApplication= em.find(JobApplication.class, application.getId());
 			
@@ -63,15 +62,25 @@ public class JobInterestServiceTest {
 			return users.get(0);
 		}
 		
-		public Company searchCompany(String email){
-			Query query = em.createQuery("select u from User u where USERTYPE like :type and email like :mail");
+		public JobOffer searchOffer(String email,String job){
+			Company c = searchCompany(email);			
+			Query query = em.createQuery("select o from JobOffer o where Active=true and compid like :cid and Job like :jobdescr");
 			//System.out.println(email);
+			query.setParameter("cid", c.getId());
+			query.setParameter("jobdescr", job);
+			
+			List<JobOffer> offers = query.getResultList();
+			
+			return offers.get(0);
+		}
+		
+		public Company searchCompany(String email){
+			Query query = em.createQuery("select u from User u where USERTYPE like :type and email like :mail");			
 			query.setParameter("mail", email);
 			query.setParameter("type", "company");
-			
-			List<Company> users = query.getResultList();
-			
+			List<Company> users = query.getResultList();			
 			return users.get(0);
 		}
+		
 					
 	}
