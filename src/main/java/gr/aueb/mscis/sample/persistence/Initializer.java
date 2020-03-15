@@ -1,5 +1,6 @@
 package gr.aueb.mscis.sample.persistence;
 
+import java.net.URI;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -7,7 +8,9 @@ import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.ws.rs.core.UriBuilder;
 
+import org.glassfish.grizzly.http.server.HttpServer;
 
 import gr.aueb.mscis.sample.model.*;
 //import gr.aueb.mscis.sample.model.Movie;
@@ -15,7 +18,14 @@ import gr.aueb.mscis.sample.model.*;
 import java.util.Date;
 public class Initializer  {
 
-
+	/*private HttpServer server;
+	
+	public void startServer() throws Exception {
+   // public static final URI BASE_URI =UriBuilder.fromUri("http://localhost/").port(9998).build();
+	server.start();
+	}*/
+    
+    
     /**
      * Remove all data from database.
      * The functionality must be executed within the bounds of a transaction
@@ -78,4 +88,9 @@ public class Initializer  {
         tx.commit();
         
     }
+
+
+/* public void tearDown() throws Exception{
+       server.shutdownNow();
+}*/
 }

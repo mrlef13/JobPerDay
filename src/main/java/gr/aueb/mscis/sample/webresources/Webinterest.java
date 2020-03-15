@@ -44,10 +44,10 @@ public Response postEmployeeInterest(WebEmployeeInterest webemployeeinterest) {
 	
 	JobInterestService service  = new JobInterestService();
 	
-	System.out.println("webemployeeinterest -->"+webemployeeinterest.getEmployeeid()+" "+webemployeeinterest.getJobofferid());
+	//System.out.println("webemployeeinterest -->"+webemployeeinterest.getEmployeeid()+" "+webemployeeinterest.getJobofferid());
 	JobApplication app =service.employeeInterest(webemployeeinterest.getEmployeeid(), webemployeeinterest.getJobofferid());
 	app.setEmpver(true);app.setCompver(true);
-	System.out.println("app --> employeeid:"+app.getEmpid()+", appid:"+app.getId()+", compver:"+app.getCompver()+" empver:"+app.getEmpver()) ;
+	//System.out.println("app --> employeeid:"+app.getEmpid()+", appid:"+app.getId()+", compver:"+app.getCompver()+" empver:"+app.getEmpver()) ;
 	
 	if (app.getId()>0 ) return Response.ok().build();		
 	else return Response.noContent().build();

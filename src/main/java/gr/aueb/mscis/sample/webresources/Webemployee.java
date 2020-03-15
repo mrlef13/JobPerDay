@@ -78,7 +78,7 @@ public Webemployee(String email,String pass,String passver,String first,String l
 	this.phone=phone;
 }
 
-public Employee getEmployee(EntityManager em) {
+/*public Employee getEmployee(EntityManager em) {
 	
 	Employee employee;
 	EntityTransaction tx = em.getTransaction();
@@ -103,6 +103,6 @@ public Employee getEmployee(EntityManager em) {
 	employee.setphonenumber(this.phone);
 	
 	return employee;
-}
+}*/
 
 }

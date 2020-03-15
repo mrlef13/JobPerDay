@@ -84,29 +84,6 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>460</x>
-      <y>580</y>
-      <w>180</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>JobApplication
---
-#id:int
-#Compver:boolean
-#Empver:boolean
---
-+setId(int id)
-+getId():int 
-+setCompver(boolean)
-+getCompver():boolean
-+setEmppver(boolean)
-+getEmpver():boolean
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
       <x>290</x>
       <y>0</y>
       <w>210</w>

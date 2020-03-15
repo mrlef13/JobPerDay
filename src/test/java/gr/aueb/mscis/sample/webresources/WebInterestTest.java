@@ -61,7 +61,7 @@ import gr.aueb.mscis.sample.persistence.JPAUtil;
 			JobOffer offer= searchOffer("company@prepare.com","Chef");
 			WebEmployeeInterest webemployeeinterest=new WebEmployeeInterest(e.getId(), offer.getId());
 			Response response = target("/interest/employee").request().post(Entity.entity(webemployeeinterest, MediaType.APPLICATION_XML));			
-			System.out.println("testpostEmployeeInterest --> status:"+response.getStatus());
+			//System.out.println("testpostEmployeeInterest --> status:"+response.getStatus());
 			Assert.assertEquals(Status.OK.getStatusCode(),response.getStatus());
 		}
 		
