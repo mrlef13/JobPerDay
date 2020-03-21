@@ -43,4 +43,5 @@ public Set<JobOffer> jobofferset = new HashSet<JobOffer>();
 	public String getAFM() {
 		return this.AFM;		
 	}
+	
 }

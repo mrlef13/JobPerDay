@@ -1,6 +1,6 @@
 package gr.aueb.mscis.sample.persistence;
 
-import java.net.URI;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -8,9 +8,7 @@ import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
-import javax.ws.rs.core.UriBuilder;
 
-import org.glassfish.grizzly.http.server.HttpServer;
 
 import gr.aueb.mscis.sample.model.*;
 //import gr.aueb.mscis.sample.model.Movie;
@@ -18,18 +16,6 @@ import gr.aueb.mscis.sample.model.*;
 import java.util.Date;
 public class Initializer  {
 
-	/*private HttpServer server;
-	
-	public void startServer() throws Exception {
-   // public static final URI BASE_URI =UriBuilder.fromUri("http://localhost/").port(9998).build();
-	server.start();
-	}*/
-    
-    
-    /**
-     * Remove all data from database.
-     * The functionality must be executed within the bounds of a transaction
-     */
     public void  eraseData() {
         EntityManager em = JPAUtil.getCurrentEntityManager();
        
@@ -37,12 +23,12 @@ public class Initializer  {
         tx.begin();
         Query query = null;
 
-        query = em.createNativeQuery("delete from JOBOFFERS");        
-        query.executeUpdate();
         query = em.createNativeQuery("delete from APPLICATIONS");
         query.executeUpdate();
+        query = em.createNativeQuery("delete from JOBOFFERS");        
+        query.executeUpdate();        
         query = em.createNativeQuery("delete from USERS");
-        query.executeUpdate();    
+        query.executeUpdate();
         tx.commit();
     }
 
@@ -71,6 +57,10 @@ public class Initializer  {
         
         testCompany.jobofferset.add(joboffer1);
         testCompany.jobofferset.add(joboffer2);
+        
+        JobApplication app =new JobApplication(joboffer1,false,false,testEmployee.getId());
+        joboffer1.apps.add(app);
+        testEmployee.applicationset.add(app);
         EntityManager em = JPAUtil.getCurrentEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -83,14 +73,12 @@ public class Initializer  {
         em.persist(testCompany);
         joboffer1.setCompid(testCompany.getId());
         joboffer2.setCompid(testCompany.getId());
+        app.setEmpid(testEmployee.getId());
+        app.setOffer(joboffer1);
         em.persist(joboffer1);
         em.persist(joboffer2);
+        em.persist(app);
         tx.commit();
         
     }
-
-
-/* public void tearDown() throws Exception{
-       server.shutdownNow();
-}*/
 }

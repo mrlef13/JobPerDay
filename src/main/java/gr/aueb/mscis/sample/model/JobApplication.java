@@ -40,16 +40,13 @@ public class JobApplication {
 
 	public JobApplication() {}
 	
-	public JobApplication(boolean compver,boolean empver) {
-		//this.id=id;
+	public JobApplication(JobOffer offer,boolean compver,boolean empver,int employeeid) {
+		this.offer=offer;
 		this.compver=compver;
 		this.empver=empver;
+		this.empid=employeeid;
 	}
-	/*
-	public void setId(int id){
-		this.id=id;
-	}
-	*/
+	
 	public int getId() {
 		return id;
 	} 

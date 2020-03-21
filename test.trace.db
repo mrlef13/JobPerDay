@@ -873,3 +873,174 @@ Caused by: java.lang.IllegalArgumentException: Mon Mar 02 14:07:57 EET 2020
 	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:305)
 	at org.h2.value.ValueDate.parse(ValueDate.java:79)
 	... 56 more
+2020-03-21 14:42:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete from JobOffer [42102-192]
+2020-03-21 14:42:17 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete from JobOffer [42102-192]
+2020-03-21 14:42:17 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete from JobOffer [42102-192]
+2020-03-21 14:42:17 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete from JobOffer [42102-192]
+2020-03-21 14:42:17 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete from JobOffer [42102-192]
+2020-03-21 14:42:17 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete from JobOffer [42102-192]
+2020-03-21 14:42:17 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete from JobOffer [42102-192]
+2020-03-21 14:42:17 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete from JobOffer [42102-192]
+2020-03-21 14:42:17 jdbc[11]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete from JobOffer [42102-192]
+2020-03-21 14:42:17 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete from JobOffer [42102-192]
+2020-03-21 14:54:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:54:50 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:54:52 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:54:54 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:54:56 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:54:58 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:55:00 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:55:02 jdbc[11]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:55:04 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:56:20 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:56:22 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:56:24 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:56:26 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:56:28 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:56:30 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:56:32 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:56:34 jdbc[11]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 14:56:36 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from JOBOFFERS [50200-192]
+2020-03-21 15:00:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete JobOffer [42102-192]
+2020-03-21 15:00:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete JobOffer [42102-192]
+2020-03-21 15:00:44 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete JobOffer [42102-192]
+2020-03-21 15:00:44 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete JobOffer [42102-192]
+2020-03-21 15:00:44 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete JobOffer [42102-192]
+2020-03-21 15:00:44 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete JobOffer [42102-192]
+2020-03-21 15:00:44 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete JobOffer [42102-192]
+2020-03-21 15:00:44 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete JobOffer [42102-192]
+2020-03-21 15:00:44 jdbc[11]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete JobOffer [42102-192]
+2020-03-21 15:00:44 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBOFFER" not found; SQL statement:
+delete JobOffer [42102-192]
+2020-03-21 15:01:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBAPPLICATION" not found; SQL statement:
+delete JobApplication [42102-192]
+2020-03-21 15:01:11 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBAPPLICATION" not found; SQL statement:
+delete JobApplication [42102-192]
+2020-03-21 15:01:11 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBAPPLICATION" not found; SQL statement:
+delete JobApplication [42102-192]
+2020-03-21 15:01:11 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBAPPLICATION" not found; SQL statement:
+delete JobApplication [42102-192]
+2020-03-21 15:01:11 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBAPPLICATION" not found; SQL statement:
+delete JobApplication [42102-192]
+2020-03-21 15:01:11 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBAPPLICATION" not found; SQL statement:
+delete JobApplication [42102-192]
+2020-03-21 15:01:11 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBAPPLICATION" not found; SQL statement:
+delete JobApplication [42102-192]
+2020-03-21 15:01:11 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBAPPLICATION" not found; SQL statement:
+delete JobApplication [42102-192]
+2020-03-21 15:01:11 jdbc[11]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBAPPLICATION" not found; SQL statement:
+delete JobApplication [42102-192]
+2020-03-21 15:01:12 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "JOBAPPLICATION" not found; SQL statement:
+delete JobApplication [42102-192]
+2020-03-21 15:17:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from APPLICATIONS [50200-192]
+2020-03-21 15:17:56 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from APPLICATIONS [50200-192]
+2020-03-21 15:17:58 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from APPLICATIONS [50200-192]
+2020-03-21 15:18:00 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from APPLICATIONS [50200-192]
+2020-03-21 15:18:02 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from APPLICATIONS [50200-192]
+2020-03-21 15:18:04 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from APPLICATIONS [50200-192]
+2020-03-21 15:18:06 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from APPLICATIONS [50200-192]
+2020-03-21 15:18:08 jdbc[11]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from APPLICATIONS [50200-192]
+2020-03-21 15:18:10 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from APPLICATIONS [50200-192]

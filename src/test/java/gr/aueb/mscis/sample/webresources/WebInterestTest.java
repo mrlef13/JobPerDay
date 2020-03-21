@@ -50,8 +50,9 @@ import gr.aueb.mscis.sample.persistence.JPAUtil;
 		
 		@Test
 		public void testGetJobOffer() {
-			Invocation.Builder builder=target("/interest/Chef").request().accept(MediaType.APPLICATION_JSON);					
-			List<JobOffer> joboffers= builder.get(new GenericType<List<JobOffer>>() {});
+			Invocation.Builder builder=target("/interest/job/Chef").request().accept(MediaType.APPLICATION_JSON);					
+			List<Webjoboffer> joboffers= builder.get(new GenericType<List<Webjoboffer>>() {});
+			System.out.println("testGetJobOffer -->"+joboffers.size());
 			Assert.assertEquals(2,joboffers.size());
 		}
 		

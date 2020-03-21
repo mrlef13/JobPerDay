@@ -3,6 +3,7 @@ package gr.aueb.mscis.sample.webresources;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import gr.aueb.mscis.sample.model.JOB;
+import gr.aueb.mscis.sample.model.JobOffer;
 
 @XmlRootElement
 public class Webjoboffer {
