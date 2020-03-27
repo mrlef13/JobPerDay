@@ -1,20 +1,13 @@
 package gr.aueb.mscis.sample.webresources;
-import java.net.URI;
 
-import javax.persistence.EntityManager;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-import javax.ws.rs.client.*;
 import gr.aueb.mscis.sample.model.Employee;
-import gr.aueb.mscis.sample.persistence.JPAUtil;
 import gr.aueb.mscis.sample.service.RegistrationService;
 import gr.aueb.mscis.sample.model.Company;
 
 @Path("registration")
 public class Webregister {
-	
-	@Context
-	UriInfo uriInfo;
 	
 
 @POST

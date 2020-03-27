@@ -18,26 +18,26 @@ public class EmployeeChoiceService {
 	public List<JobOffer> getValidOffers(int compid) {
 		SearchFunctions sf =new SearchFunctions();
 		List<JobOffer> joboffers=sf.searchActiveJobOffers(compid);
-		
-		System.out.println("getValidOffers -->"+joboffers.get(0).getCompid()+", "+joboffers.get(0).getJob());
+				
 		return joboffers;
 	}
 	
 	public List<JobApplication> getApplications(JobOffer offer) {
 		SearchFunctions sf =new SearchFunctions();
-		List<JobApplication> jobapps=sf.searchActiveJobApplication(offer);
+		List<JobApplication> jobapps=sf.searchActiveJobApplication(offer);		
 		return jobapps;
 	}
 	
-	public void appVerification (JobApplication app) {
+	public boolean appVerification (JobApplication app) {
 		
-		app.setCompver(true);
 		JobOffer offer=	app.getOffer();
-		offer.setActive(false);
-		
-		em.persist(app);
-		em.persist(offer);
-		
+		if (offer.getActive()) {
+			app.setCompver(true);
+			offer.setActive(false);			
+			em.persist(app);
+			em.persist(offer);
+			return true;			
+		}else return false;
 	}
 	
 }
