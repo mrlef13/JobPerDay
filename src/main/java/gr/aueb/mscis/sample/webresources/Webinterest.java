@@ -49,7 +49,6 @@ public List<Webjoboffer> getActiveJobOffers(@PathParam("job") String job) {
 @POST
 @Path("employee")
 @Consumes(MediaType.APPLICATION_XML)
-//public Response postEmployeeInterest(@QueryParam("emplid") int emplid,@QueryParam("offerid") int offerid) {
 public Response postEmployeeInterest(WebEmployeeInterest webemployeeinterest) {
 	
 	JobInterestService service  = new JobInterestService();

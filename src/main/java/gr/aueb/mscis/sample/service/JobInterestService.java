@@ -23,8 +23,7 @@ public class JobInterestService {
 		Query query = em.createQuery("select r from JobOffer r where Job like :job and Active=true and Expirationdate > :currentdate");		
 		query.setParameter("job", job.toString());
 		query.setParameter("currentdate",date1);		
-		List<JobOffer> results = query.getResultList();
-		System.out.println("searchJobOffers --> "+results.size());
+		List<JobOffer> results = query.getResultList();		
 		return results;
 	}
 

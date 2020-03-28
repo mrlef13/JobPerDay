@@ -12,11 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 @DiscriminatorValue("employee")
 public class Employee extends User {
-	
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
-	//private int employee_id;
-	
+		
 	@Column(name = "phonenumber", length = 10, nullable = true)
 	private String phonenumber;
 	
@@ -26,7 +22,8 @@ public class Employee extends User {
 	@Column(name = "LastName", length = 50, nullable = true)
 	private String LastName;
 	
-	public HashSet<JOB> JOBList= new HashSet<JOB>();
+	@Column(name="Joblist", nullable=true)
+	public HashSet<String> JOBList= new HashSet<String>();
 	
 	@Column(name="Available", length= 1, nullable=true)
 	public Boolean availability=true;

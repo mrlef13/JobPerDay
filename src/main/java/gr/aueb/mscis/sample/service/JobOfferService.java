@@ -24,15 +24,13 @@ public class JobOfferService {
 		JobOffer joboffer = new JobOffer();
 		
 		Query query = em.createQuery("select c from User c where USERTYPE like :type and email like :mail");
-		//System.out.println(email);
+
 		query.setParameter("mail", email);
 		query.setParameter("type", "company");
 		
 		List<Company> results = query.getResultList();		
-		//@SuppressWarnings("unused")
+
 		Company company=results.get(0);
-		//int compid =results.get(0).getId();
-		//System.out.println(compid);
 	    Date date1 = null;
 		try {
 			date1 = new SimpleDateFormat("dd/MM/yyyy").parse(entry);
@@ -49,8 +47,6 @@ public class JobOfferService {
 		}
 		EntityTransaction tx = em.getTransaction();
 		joboffer.setExprirationdate(date1);
-		//comp.setId(comp_id);
-		//System.out.println("in job offer service:"+company.getId());
 		joboffer.setCompid(company.getId());
 		joboffer.setPayment(payment);
 		joboffer.setJob(job.toString());
@@ -61,7 +57,7 @@ public class JobOfferService {
 			em.persist(company);
 			em.persist(joboffer);
 		}
-		// new session, data will be retrieved from database			
+			
 		
         tx.commit();
 		

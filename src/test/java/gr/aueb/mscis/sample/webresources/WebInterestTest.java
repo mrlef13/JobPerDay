@@ -51,8 +51,7 @@ import gr.aueb.mscis.sample.persistence.JPAUtil;
 		@Test
 		public void testGetJobOffer() {
 			Invocation.Builder builder=target("/interest/job/Chef").request().accept(MediaType.APPLICATION_JSON);					
-			List<Webjoboffer> joboffers= builder.get(new GenericType<List<Webjoboffer>>() {});
-			System.out.println("testGetJobOffer -->"+joboffers.size());
+			List<Webjoboffer> joboffers= builder.get(new GenericType<List<Webjoboffer>>() {});			
 			Assert.assertEquals(2,joboffers.size());
 		}
 		
@@ -62,13 +61,11 @@ import gr.aueb.mscis.sample.persistence.JPAUtil;
 			JobOffer offer= searchOffer("company@prepare.com","Chef");
 			WebEmployeeInterest webemployeeinterest=new WebEmployeeInterest(e.getId(), offer.getId());
 			Response response = target("/interest/employee").request().post(Entity.entity(webemployeeinterest, MediaType.APPLICATION_XML));			
-			//System.out.println("testpostEmployeeInterest --> status:"+response.getStatus());
 			Assert.assertEquals(Status.OK.getStatusCode(),response.getStatus());
 		}
 		
 		public Employee searchEmployee(String email){
 			Query query = em.createQuery("select u from User u where USERTYPE like :type and email like :mail");
-			//System.out.println(email);
 			query.setParameter("mail", email);
 			query.setParameter("type", "employee");
 			
@@ -80,7 +77,6 @@ import gr.aueb.mscis.sample.persistence.JPAUtil;
 		public JobOffer searchOffer(String email,String job){
 			Company c = searchCompany(email);			
 			Query query = em.createQuery("select o from JobOffer o where Active=true and compid like :cid and Job like :jobdescr");
-			//System.out.println(email);
 			query.setParameter("cid", c.getId());
 			query.setParameter("jobdescr", job);
 			

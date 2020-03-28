@@ -18,8 +18,18 @@ EntityManager em=JPAUtil.getCurrentEntityManager();
 	public Employee searchEmployee(String email) {		
 		Query query = em.createQuery("select r from Employee r where email like :mail");		
 		query.setParameter("mail", email);
+		
 		List<Employee> results = query.getResultList();	
-		Employee employee=results.get(0);
+		if (results.size()>0) {
+			Employee employee=results.get(0);
+			return employee;
+		}else return null;
+		
+		
+	}
+	
+	public Employee searchEmployee(int id) {		
+		Employee employee = em.find(Employee.class, id);
 		return employee;
 	}
 	

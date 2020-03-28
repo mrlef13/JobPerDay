@@ -36,6 +36,8 @@ public class Initializer  {
 
         eraseData();                              
         Employee testEmployee = new Employee("employee@prepare.com", "denmpaineis", "Nikos", "Fousekis", "0904987333");
+        testEmployee.JOBList.add(JOB.Chef.toString());
+        testEmployee.JOBList.add(JOB.Sous_Chef.toString());
         Company testCompany = new Company("company@prepare.com", "denmpaineis", "myComp", "0123456789");
         Date d1=null;
 		try {
