@@ -34,8 +34,7 @@ public class Initializer  {
 
     public void prepareData() {
 
-        eraseData();                      
-        User testUser = new User("user@prepare.com", "pass1");
+        eraseData();                              
         Employee testEmployee = new Employee("employee@prepare.com", "denmpaineis", "Nikos", "Fousekis", "0904987333");
         Company testCompany = new Company("company@prepare.com", "denmpaineis", "myComp", "0123456789");
         Date d1=null;
@@ -59,25 +58,28 @@ public class Initializer  {
         testCompany.jobofferset.add(joboffer2);
         
         JobApplication app =new JobApplication(joboffer1,false,false,testEmployee.getId());
+        JobApplication app2 =new JobApplication(joboffer2,true,false,testEmployee.getId());
         joboffer1.apps.add(app);
+        joboffer2.apps.add(app2);
         testEmployee.applicationset.add(app);
+        testEmployee.applicationset.add(app2);
         EntityManager em = JPAUtil.getCurrentEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        
-        try {em.persist(testUser);
-        }catch(EntityExistsException e){}
-        
-        //em.persist(testUser);
+                        
         em.persist(testEmployee);
         em.persist(testCompany);
         joboffer1.setCompid(testCompany.getId());
         joboffer2.setCompid(testCompany.getId());
         app.setEmpid(testEmployee.getId());
         app.setOffer(joboffer1);
+        app2.setEmpid(testEmployee.getId());
+        app2.setOffer(joboffer2);
         em.persist(joboffer1);
         em.persist(joboffer2);
         em.persist(app);
+        em.persist(app2);
+        
         tx.commit();
         
     }

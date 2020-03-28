@@ -54,6 +54,13 @@ EntityManager em=JPAUtil.getCurrentEntityManager();
 		return results;
 	}
 	
+	public List<JobApplication> searchActiveJobApplication(int empid) {		
+		Query query = em.createQuery("select r from JobApplication r where compver = true and empid like :empid");				
+		query.setParameter("empid", empid);
+		List<JobApplication> results = query.getResultList();			
+		return results;
+	}
+	
 	public JobOffer findJoboffer(int id) {				
 		JobOffer offer = em.find(JobOffer.class, id);
 		return offer;

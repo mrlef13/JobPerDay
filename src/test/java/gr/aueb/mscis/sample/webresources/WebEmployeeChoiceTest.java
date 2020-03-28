@@ -58,19 +58,12 @@ public class WebEmployeeChoiceTest extends JerseyTest {
 	public void testGetApplications() {
 		SearchFunctions sf =new SearchFunctions();
 		Company company = sf.searchCompany("company@prepare.com");		
-		Webjoboffer webjoboffer = new Webjoboffer("company@prepare.com","Barista","10/06/2020",10,19,"19/06/2020",100);
-		//Response response = target("/applications").request().get 
-		//Invocation.Builder builder=target("/applications/").request().post(Entity.entity(webjoboffer, MediaType.APPLICATION_JSON));
-		//List<JobApplication> apps= builder.get(new GenericType<List<JobApplication>>() {});
-		//List<JobApplication> apps= target("/employeechoice/applications/").request(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).post(Entity.json(webjoboffer), MediaType.APPLICATION_JSON);
+		List<JobOffer> offers=sf.searchActiveJobOffers(company.getId());
+		Webjoboffer webjoboffer = new Webjoboffer(offers.get(0).getId(),offers.get(0).getCompid(),offers.get(0).getJob(),offers.get(0).getEntrydate().toString(),offers.get(0).getEntryHour(), offers.get(0).getEndhour(),offers.get(0).getExprirationdate().toString(), offers.get(0).getPayment());
 		Response output= target("/employeechoice/applications/").request(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).post(Entity.json(webjoboffer));
-				//.accept(MediaType.TEXT_PLAIN_TYPE).post(Entity.entity(webjoboffer, MediaType.APPLICATION_JSON),JobApplication.class);
-		System.out.println("testGetApplications-->"+output.getEntity());     
-		//Assert.assertEquals(,);
-		/*
-		target("customers").request(MediaType.APPLICATION_JSON) .accept(MediaType.TEXT_PLAIN_TYPE)
-        //this time we are calling post to make a HTTP POST call
-        .post(, String.class);*/
+		Assert.assertEquals(200, output.getStatus());
+		Assert.assertNotNull(output.getEntity());
+
 	}
 	
 	

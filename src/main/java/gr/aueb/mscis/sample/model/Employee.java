@@ -26,7 +26,7 @@ public class Employee extends User {
 	@Column(name = "LastName", length = 50, nullable = true)
 	private String LastName;
 	
-	public HashSet<JOB> JOBList= new HashSet<JOB>(); //Table?//
+	public HashSet<JOB> JOBList= new HashSet<JOB>();
 	
 	@Column(name="Available", length= 1, nullable=true)
 	public Boolean availability=true;
