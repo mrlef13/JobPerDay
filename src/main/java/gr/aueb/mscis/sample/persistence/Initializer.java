@@ -36,8 +36,12 @@ public class Initializer  {
 
         eraseData();                              
         Employee testEmployee = new Employee("employee@prepare.com", "denmpaineis", "Nikos", "Fousekis", "0904987333");
+        Employee testEmployee2 = new Employee("employee2@prepare.com", "denmpaineis", "A", "K", "42069666");
         testEmployee.JOBList.add(JOB.Chef.toString());
         testEmployee.JOBList.add(JOB.Sous_Chef.toString());
+        
+        testEmployee2.JOBList.add(JOB.Chef.toString());
+        testEmployee2.JOBList.add(JOB.Barista.toString());
         Company testCompany = new Company("company@prepare.com", "denmpaineis", "myComp", "0123456789");
         Date d1=null;
 		try {
@@ -70,6 +74,7 @@ public class Initializer  {
         tx.begin();
                         
         em.persist(testEmployee);
+        em.persist(testEmployee2);
         em.persist(testCompany);
         joboffer1.setCompid(testCompany.getId());
         joboffer2.setCompid(testCompany.getId());

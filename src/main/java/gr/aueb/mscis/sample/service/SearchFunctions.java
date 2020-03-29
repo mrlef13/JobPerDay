@@ -1,5 +1,6 @@
 package gr.aueb.mscis.sample.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -31,6 +32,22 @@ EntityManager em=JPAUtil.getCurrentEntityManager();
 	public Employee searchEmployee(int id) {		
 		Employee employee = em.find(Employee.class, id);
 		return employee;
+	}
+	
+	public List<Employee> searchEmployees(JobOffer offer) {		
+		//Query query = em.createQuery("select r from Employee r join r.JOBList j where j like :job");				
+		//query.setParameter("job", offer.getJob());
+		Query query = em.createQuery("select r from Employee r where availability = true");
+		
+		List<Employee> employees = query.getResultList();
+		List<Employee> results = new ArrayList<Employee>();
+		
+		if (employees.size()>0) {
+			for (Employee e: employees) {
+				if (e.JOBList.contains(offer.getJob())) results.add(e);
+			}			
+			return results;
+		}else return null;
 	}
 	
 	public Company searchCompany(String email) {		
@@ -70,6 +87,7 @@ EntityManager em=JPAUtil.getCurrentEntityManager();
 		List<JobApplication> results = query.getResultList();			
 		return results;
 	}
+	
 	
 	public JobOffer findJoboffer(int id) {				
 		JobOffer offer = em.find(JobOffer.class, id);

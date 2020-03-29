@@ -22,7 +22,7 @@ public class Employee extends User {
 	@Column(name = "LastName", length = 50, nullable = true)
 	private String LastName;
 	
-	@Column(name="Joblist", nullable=true)
+	@Column(name="Joblist", nullable=true)	
 	public HashSet<String> JOBList= new HashSet<String>();
 	
 	@Column(name="Available", length= 1, nullable=true)
